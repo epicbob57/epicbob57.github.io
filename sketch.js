@@ -18,11 +18,11 @@ function jquery_download() {
 
 function SendToVaaS() {
     var text = document.getElementById("Text").value;
-    var voice = document.getElementById("voiceChoice");
+    var voice = document.getElementById("voiceChoice").value;
     var voiceid = document.getElementById("voiceChoice").value.replace(' ', '').replace('(', '').replace(')', '').toLowerCase() + "22k";
     var rate = parseInt(document.getElementById("rateSlider").value) + 180;
     var shaping = parseInt(document.getElementById("shapeSlider").value) + 100;
-    var format = document.getElementById("formatChoice");
+    var format = document.getElementById("formatChoice").value;
 
 
     text = "\\vct=" + shaping + "\\ \\spd=" + rate + "\\ " + text;
