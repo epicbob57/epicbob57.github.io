@@ -52,7 +52,7 @@ function SendToVaaS() {
         },
         error: function(e) {
             var msg = "Error" + e.status + " " + e.statusText;
-            console.log(error);
+            console.log(msg);
         }
     });
 }
