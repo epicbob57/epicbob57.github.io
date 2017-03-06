@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>AcaBox Hacked</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+    <style>
+        .container {
+            width: 300px;
+            padding: 5px;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            margin: 13.8px 0;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            background: #3071a9;
+            border-radius: 1.3px;
+            border: 0.2px solid #010101;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            border: 1px solid #000000;
+            height: 36px;
+            width: 16px;
+            border-radius: 3px;
+            background: #ffffff;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -14px;
+        }
+
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #367ebd;
+        }
+
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            background: #3071a9;
+            border-radius: 1.3px;
+            border: 0.2px solid #010101;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            border: 1px solid #000000;
+            height: 36px;
+            width: 16px;
+            border-radius: 3px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        input[type=range]::-ms-fill-lower {
+            background: #2a6495;
+            border: 0.2px solid #010101;
+            border-radius: 2.6px;
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        }
+
+        input[type=range]::-ms-fill-upper {
+            background: #3071a9;
+            border: 0.2px solid #010101;
+            border-radius: 2.6px;
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+        }
+
+        input[type=range]::-ms-thumb {
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            border: 1px solid #000000;
+            height: 36px;
+            width: 16px;
+            border-radius: 3px;
+            background: #ffffff;
+            cursor: pointer;
+            height: 8.4px;
+        }
+
+        input[type=range]:focus::-ms-fill-lower {
+            background: #3071a9;
+        }
+
+        input[type=range]:focus::-ms-fill-upper {
+            background: #367ebd;
+        }
+
+        .styled-select {
+            background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+            height: 29px;
+            overflow: hidden;
+            width: 240px;
+        }
+
+        .styled-select select {
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            height: 29px;
+            padding: 5px;
+            /* If you add too much padding here, the options won't show in IE */
+            width: 268px;
+        }
+
+        .styled-select.slate {
+            background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+            height: 34px;
+            width: 240px;
+        }
+
+        .styled-select.slate select {
+            border: 1px solid #ccc;
+            font-size: 16px;
+            height: 34px;
+            width: 268px;
+        }
+        /* -------------------- Rounded Corners */
+
+        .rounded {
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+        }
+
+        .semi-square {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        /* -------------------- Colors: Background */
+
+        .slate {
+            background-color: #ddd;
+        }
+
+        .green {
+            background-color: #779126;
+        }
+
+        .blue {
+            background-color: #3b8ec2;
+        }
+
+        .yellow {
+            background-color: #eec111;
+        }
+
+        .black {
+            background-color: #000;
+        }
+        /* -------------------- Colors: Text */
+
+        .slate select {
+            color: #000;
+        }
+
+        .green select {
+            color: #fff;
+        }
+
+        .blue select {
+            color: #000;
+        }
+
+        .yellow select {
+            color: #000;
+        }
+
+        .black select {
+            color: #fff;
+        }
+        /* -------------------- Select Box Styles: danielneumann.com Method */
+        /* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+
+        #mainselection select {
+            border: 0;
+            color: #EEE;
+            background: transparent;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 2px 10px;
+            width: 378px;
+            *width: 350px;
+            *background: #58B14C;
+            -webkit-appearance: none;
+        }
+
+        #mainselection {
+            overflow: hidden;
+            width: 350px;
+            -moz-border-radius: 9px 9px 9px 9px;
+            -webkit-border-radius: 9px 9px 9px 9px;
+            border-radius: 9px 9px 9px 9px;
+            box-shadow: 1px 1px 11px #330033;
+            background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+        }
+        /* -------------------- Select Box Styles: stackoverflow.com Method */
+        /* -------------------- Source: http://stackoverflow.com/a/5809186 */
+
+        select#soflow,
+        select#soflow-color {
+            -webkit-appearance: button;
+            -webkit-border-radius: 2px;
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            -webkit-padding-end: 20px;
+            -webkit-padding-start: 2px;
+            -webkit-user-select: none;
+            background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+            background-position: 97% center;
+            background-repeat: no-repeat;
+            border: 1px solid #AAA;
+            color: #555;
+            font-size: inherit;
+            margin: 20px;
+            overflow: hidden;
+            padding: 5px 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 300px;
+        }
+
+        select#soflow-color {
+            color: #fff;
+            background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+            background-color: #779126;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            padding-left: 15px;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            vertical-align: top;
+        }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AcaBox Hacked</h1>
+    <br />
+    <p><b>Text:</b></p>
+    <textarea cols="40" style="resize:none;border: 2px solid #765942;border-radius: 10px" name="Text" id="Text" rows="5"></textarea><br />
+    <div class="styled-select blue semi-square">
+        <select id="voiceChoice">
+            <option value="Ella">Ella (Child)</option>
+            <option value="EmilioEnglish">Emilio (Child)</option>
+            <option value="Josh">Josh (Child)</option>
+            <option value="Karen">Karen</option>
+            <option value="Kenny">Kenny</option>
+            <option value="Laura">Laura</option>
+            <option value="Micah">Micah</option>
+            <option value="Nelly">Nelly</option>
+            <option value="Rod">Rod</option>
+            <option value="Ryan">Ryan</option>
+            <option value="Saul">Saul</option>
+            <option value="Scott">Scott (Child)</option>
+            <option value="Sharon">Sharon</option>
+            <option value="Tracy">Tracy</option>
+            <option value="ValeriaEnglish">Valeria (Child)</option>
+            <option value="Will">Will</option>
+            <option value="WillBadGuy">Will (BadGuy)</option>
+            <option value="WillFromAfar">Will (FromAfar)</option>
+            <option value="WillHappy">Will (Happy)</option>
+            <option value="WillLittleCreature">Will (LittleCreature)</option>
+            <option value="WillOldMan">Will (OldMan)</option>
+            <option value="WillSad">Will (Sad)</option>
+            <option value="WillUpClose">Will (UpClose)</option>
+         </select>
+    </div>
+    <div class="container">
+        <p><b>Speech Rate</b></p>
+        <input type="range" id="rateSlider" min="-60" max="60" oninput="rateSliderValue.value = rateSlider.value" />
+        <p style="text-align:center;"><b><output name="rS" id="rateSliderValue">0</output></b></p>
+        <p><b>Voice Shaping</b></p>
+        <input type="range" id="shapeSlider" min="-15" max="15" oninput="shapeSliderValue.value = shapeSlider.value" />
+        <p style="text-align:center;"><b><output name="sS" id="shapeSliderValue">0</output></b></p>
+    </div>
+    <div class="styled-select yellow semi-square">
+        <select id="formatChoice">
+            <option value="MP3">MP3</option>
+            <option value="WAV 22kHz">WAV 22kHz</option>
+            <option value="WAV a-law">WAV a-law</option>
+            <option value="WAV µ-law">WAV µ-law</option>
+            <option value="WAV 8kHz">WAV 8kHz</option>
+         </select>
+    </div>
+    <br/>
+    <button class="dropbtn" id="download_button" type="button" title="Download the file to your computer" onclick="SendToVaaS();" style="background-color: #6666ff;">Download</button>
+</body>
+
+</html>
