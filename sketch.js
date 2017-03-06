@@ -38,7 +38,7 @@ function SendToVaaS() {
         type: "POST",
         url: 'https://acapela-box.com/AcaBox/index.php/dovaas.php',
         dataType: "json",
-        data: "text=" + text + "&voice=" + voiceid + "&listen=false&format=" + format + "&codecMP3=" + codecMP3 + "&spd=" + rate + "&vct=" + shaping,
+        data: "text=" + text + "&voice=" + voiceid + "&listen=0&format=" + format + "&codecMP3=" + codecMP3 + "&spd=" + rate + "&vct=" + shaping,
         success: function(data) {
             response = data;
             if (!response.hasOwnProperty('error')) {
