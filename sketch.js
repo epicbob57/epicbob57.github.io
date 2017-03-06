@@ -40,7 +40,6 @@ function SendToVaaS() {
         dataType: "json",
         data: "text=" + text + "&voice=" + voiceid + "&listen=false&format=" + format + "&codecMP3=" + codecMP3 + "&spd=" + rate + "&vct=" + shaping,
         success: function(data) {
-            hideWaitPopup();
             response = data;
             if (!response.hasOwnProperty('error')) {
                 Download(response.id);
@@ -51,7 +50,7 @@ function SendToVaaS() {
             }
         },
         error: function(e) {
-            var msg = "Error" + e.status + " " + e.statusText;
+            var msg = "Error " + e.status + " " + e.statusText;
             console.log(msg);
         }
     });
