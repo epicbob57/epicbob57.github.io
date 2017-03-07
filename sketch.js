@@ -1,5 +1,5 @@
 function Download(id) {
-    downloadurl = acaboxserver + "https://box.acapela-box.com/AcaBox/getaudio.php?id=" + id + "&download=1";
+    downloadurl = "https://box.acapela-box.com/AcaBox/getaudio.php?id=" + id + "&download=1";
 }
 
 function jquery_download() {
@@ -37,20 +37,21 @@ function SendToVaaS() {
         async: true,
         type: "POST",
         url: 'https://acapela-box.com/AcaBox/index.php/dovaas.php',
-        dataType: "json",
+        dataType: "text",
         data: "text=" + text + "&voice=" + voiceid + "&listen=0&format=" + format + "&codecMP3=" + codecMP3 + "&spd=" + rate + "&vct=" + shaping,
         success: function(data) {
             response = data;
-			Download(response.id);
-			jquery_download();
-            if (!response.hasOwnProperty('error')) {
 
+            if (!response.hasOwnProperty('error')) {
+				Download(response.id);
+				jquery_download();
             } else // Error
             {
                 console.log(response.error);
             }
         },
         error: function(e) {
+
             var msg = "Error " + e.status + " " + e.statusText;
             console.log(msg);
         }
