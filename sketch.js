@@ -34,7 +34,7 @@ function SendToVaaS() {
         data: "text=" + text + "&voice=" + voiceid + "&listen=0&format=" + format + "&codecMP3=" + codecMP3 + "&spd=" + rate + "&vct=" + shaping,
         success: function(data) {
             response = data;
-
+			console.log(response);
             if (!response.hasOwnProperty('error')) {
                 Download(response.id);
             } else // Error
