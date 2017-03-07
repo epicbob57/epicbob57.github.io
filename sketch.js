@@ -1,19 +1,12 @@
 function Download(id) {
     downloadurl = "https://box.acapela-box.com/AcaBox/getaudio.php?id=" + id + "&download=1";
-}
-
-function jquery_download() {
-    $.fileDownload(downloadurl)
-        .done(function() {
-            hideDownload();
-            OnAcaboxTextChange();
-        })
-        .fail(function() {
-            hideDownload();
-            alert("Problem downloading");
-        });
-    event.preventDefault();
-    return false;
+    var link = document.createElement("a");
+    link.download = "AcaBox-Hacked";
+    link.href = downloadurl;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    delete link;
 }
 
 function SendToVaaS() {
@@ -43,8 +36,7 @@ function SendToVaaS() {
             response = data;
 
             if (!response.hasOwnProperty('error')) {
-				Download(response.id);
-				jquery_download();
+                Download(response.id);
             } else // Error
             {
                 console.log(response.error);
