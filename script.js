@@ -1,3 +1,3 @@
-var newdiv = document.createElement("P");
-newdiv.appendChild(document.createTextNode("some text"));
-document.body.appendChild(newdiv);
+var para = document.createElement("p");
+var node = document.createTextNode("This is new.");
+para.appendChild(node);
