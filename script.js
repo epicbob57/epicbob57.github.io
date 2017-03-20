@@ -1,4 +1,3 @@
-var Discord = require('discord.io');
 var client = new Discord.Client({
   autorun: true, 
   token: ""
