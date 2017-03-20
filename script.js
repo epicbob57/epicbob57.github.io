@@ -1,8 +1,7 @@
 var Discord = require('discord.io');
 var bot = new Discord.Client({
   autorun: true, 
-  email: "epicbob5757@gmail.com",
-  password: "UBv43DVg$"
+  token: "";
 });
 
 bot.on('ready', function() {
