@@ -4,7 +4,7 @@ var password = prompt("Enter decryption password","");
 
 var client = new Discord.Client({
   autorun: true, 
-  token: CryptoJS.AES.decrypt(eToken, password).toString(CryptoJS.enc.Utf8);
+  token: CryptoJS.AES.decrypt(eToken, password).toString(CryptoJS.enc.Utf8)
 });
 
 client.on('ready', function() {
