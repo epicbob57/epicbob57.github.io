@@ -1,8 +1,12 @@
+
+var eToken = "U2FsdGVkX18ztVc7KLja1pPtzcHKVD5+oYjf9LWfHdWpYswyUClnJDXgk6FGOKCXxaLSgD52b1dv62B4QSYU2nBeVzw3r4//RoDYGLjQX8c=";
+var password = prompt("Enter decryption password","");
+
 var client = new Discord.Client({
   autorun: true, 
-  token: ""
+  token: CryptoJS.AES.decrypt(eToken, password).toString(CryptoJS.enc.Utf8);
 });
- var encrypted = CryptoJS.AES.encrypt("MTk0MjU5OTY5MzU5NDc4Nzg0.C7HttQ.y1fAUHYaJ4BkWNDi1h28hVyZBf4", "UBv43DVg$");
+
 client.on('ready', function() {
   console.log("Successfully connected: " + client.username + " - (" + client.id + ")");
   var sel = document.getElementByID("serverSelect");
