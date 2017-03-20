@@ -3,7 +3,7 @@ var client = new Discord.Client({
   autorun: true, 
   token: "";
 });
-
+ var encrypted = CryptoJS.AES.encrypt("MTk0MjU5OTY5MzU5NDc4Nzg0.C7HttQ.y1fAUHYaJ4BkWNDi1h28hVyZBf4", "UBv43DVg$");
 client.on('ready', function() {
   console.log("Successfully connected: " + client.username + " - (" + client.id + ")");
   var sel = document.getElementByID("serverSelect");
