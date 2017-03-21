@@ -11,7 +11,7 @@ var currentChannel;
 
 client.on('ready', function() {
   console.log("Successfully connected: " + client.username + " - (" + client.id + ")");
-  var sel = document.getElementByID("serverSelect");
+  var sel = document.getElementById("serverSelect");
   sel.options.length = 0;
   for (var s in client.servers){
     console.log(s.name);
@@ -27,7 +27,7 @@ client.on('message', function(callback) { /* Event called when someone joins the
  });
 
 function serverChange() {
-  var sel = document.getElementByID("channelSelect");
+  var sel = document.getElementById("channelSelect");
   sel.options.length = 0;
   for (var s in client.servers){
     console.log(s.name);
