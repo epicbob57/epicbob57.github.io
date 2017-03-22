@@ -1,6 +1,5 @@
 var eToken = "U2FsdGVkX18ztVc7KLja1pPtzcHKVD5+oYjf9LWfHdWpYswyUClnJDXgk6FGOKCXxaLSgD52b1dv62B4QSYU2nBeVzw3r4//RoDYGLjQX8c=";
-var password = "UBv43DVg$";
-//var password = prompt("Enter decryption password","");
+var password = prompt("Enter decryption password","");
 var dToken = CryptoJS.AES.decrypt(eToken, password).toString(CryptoJS.enc.Utf8);
 console.log(dToken);
 
