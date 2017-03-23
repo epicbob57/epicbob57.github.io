@@ -1,3 +1,8 @@
+function console.log(s) {
+	
+	document.getElementById("messages").insertAdjacentHTML("beforeend", `<p><b>CONSOLE"</b> ${s}</p>`);
+
+}
 var Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     encode: function(r) {
