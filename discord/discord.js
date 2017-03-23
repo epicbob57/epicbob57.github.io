@@ -105,7 +105,7 @@ function channelChange() {
     client.getMessages({
         channelID: currentChannel.id
     }, function(error, messages) {
-        if (error) return console.re.log(error);
+        if (error) return console.log(error);
         var arr = [];
         for (var m in messages) {
             // add hasOwnPropertyCheck if needed
