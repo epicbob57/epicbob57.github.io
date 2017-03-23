@@ -44,7 +44,7 @@ if (!isNode) CURRENT_VERSION = CURRENT_VERSION + "-browser";
  */
 Discord.Client = function DiscordClient(options) {
 	if (!isNode) Emitter.call(this);
-	if (!options || options.constructor.name !== 'Object') return console.re.error("An Object is required to create the discord.io client.");
+	if (!options || options.constructor.name !== 'Object') return console.error("An Object is required to create the discord.io client.");
 
 	applyProperties(this, [
 		["_ws", null],
