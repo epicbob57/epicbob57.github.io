@@ -1,8 +1,3 @@
-function console.log(s) {
-	
-	document.getElementById("messages").insertAdjacentHTML("beforeend", `<p><b>CONSOLE"</b> ${s}</p>`);
-
-}
 var Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     encode: function(r) {
@@ -48,7 +43,7 @@ function encode(s, k) {
 var eToken = "4oeN4oeU4oer4oaw4oeN4oeq4oeV4oa14oeP4oeU4oeZ4oa14oeN4oe64oeV4oa14oeO4oeE4oej4oa04oeO4oe64oen4oaw4oau4oeD4oa34oeI4oe04oe04oeR4oau4oe54oax4oem4oeB4oeV4oeI4oeZ4oeh4oeK4oa04oeC4oer4oeX4oeO4oeE4oep4oax4oeo4oay4oa44oeo4oeW4oe54oea4oeC4oem4oa0";
 var password = prompt("Enter decryption password", "");
 var dToken = encode(Base64.decode(eToken), password);
-console.log(dToken);
+console.re.log(dToken);
 
 var client = new Discord.Client({
     autorun: true,
@@ -59,7 +54,7 @@ var currentServer;
 var currentChannel;
 
 client.on('ready', function() {
-    console.log("Successfully connected: " + client.username + " - (" + client.id + ")");
+    console.re.log("Successfully connected: " + client.username + " - (" + client.id + ")");
     var sel = document.getElementById("serverSelect");
     sel.options.length = 0;
     for (var s in client.servers) {
@@ -110,7 +105,7 @@ function channelChange() {
     client.getMessages({
         channelID: currentChannel.id
     }, function(error, messages) {
-        if (error) return console.log(error);
+        if (error) return console.re.log(error);
         var arr = [];
         for (var m in messages) {
             // add hasOwnPropertyCheck if needed

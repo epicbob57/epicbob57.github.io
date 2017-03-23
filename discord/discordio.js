@@ -44,7 +44,7 @@ if (!isNode) CURRENT_VERSION = CURRENT_VERSION + "-browser";
  */
 Discord.Client = function DiscordClient(options) {
 	if (!isNode) Emitter.call(this);
-	if (!options || options.constructor.name !== 'Object') return console.error("An Object is required to create the discord.io client.");
+	if (!options || options.constructor.name !== 'Object') return console.re.error("An Object is required to create the discord.io client.");
 
 	applyProperties(this, [
 		["_ws", null],
@@ -1546,7 +1546,7 @@ function resolveID(client, ID, callback) {
 
 	//If the ID isn't in the UserID : ChannelID cache, let's try seeing if it belongs to a user.
 	if (client.users[ID]) return client.createDMChannel(ID, function(err, res) {
-		if (err) return console.log("Internal ID resolver error: " + JSON.stringify(err));
+		if (err) return console.re.log("Internal ID resolver error: " + JSON.stringify(err));
 		callback(res.id);
 	});
 
@@ -1688,12 +1688,12 @@ function handleWSMessage(data, flags) {
 			getDirectMessages(client, _data.private_channels);
 
 			if (client.bot) client.getOauthInfo(function(err, res) {
-				if (err) return console.log(err);
+				if (err) return console.re.log(err);
 				client.internals.oauth = res;
 				client.inviteURL = "https://discordapp.com/oauth2/authorize?client_id=" + res.id + "&scope=bot";
 			});
 			if (!client.bot) client.getAccountSettings(function(err, res) {
-				if (err) return console.log(err);
+				if (err) return console.re.log(err);
 				client.internals.settings = res;
 			});
 
@@ -2158,7 +2158,7 @@ ACBP.playAudioFile = function(location, callback) {
 	this._playingAudioFile = true;
 	selection = chooseAudioEncoder(encs);
 
-	if (!selection) return console.log("You need either 'ffmpeg' or 'avconv' and they need to be added to PATH");
+	if (!selection) return console.re.log("You need either 'ffmpeg' or 'avconv' and they need to be added to PATH");
 
 	enc = ChildProc.spawn(selection , [
 		'-i', location,
