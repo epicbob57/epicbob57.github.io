@@ -1,7 +1,7 @@
 console.log_ = console.log;
 console.log = function(s){
 	console.log_(s);
-	var e = document.getElementById("messages");
+	var e = document.getElementById("console_log");
     e.insertAdjacentHTML("beforeend", `<p><b>CONSOLE:</b> ${s}</p>`);
     e.scrollTop = e.scrollHeight;
 }
