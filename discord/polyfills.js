@@ -1,3 +1,11 @@
+console.log_ = console.log;
+console.log = function(s){
+	console.log_(s);
+	var e = document.getElementById("console_log");
+    e.insertAdjacentHTML("beforeend", `<p><b>CONSOLE:</b> ${s}</p>`);
+    e.scrollTop = e.scrollHeight;
+}
+
 if (!Array.prototype.every) {
 // Array.prototype.every
 Array.prototype.every = function every(callback, scope) {

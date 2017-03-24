@@ -1,3 +1,4 @@
+
 var Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     encode: function(r) {
@@ -29,12 +30,8 @@ var Base64 = {
 function encode(s, k) {
     var enc = "";
     var str = "";
-    // make sure that input is string
-    str = s.toString();
     for (var i = 0; i < s.length; i++) {
-        // create block
         var a = s.charCodeAt(i);
-        // bitwise XOR
         var b = a ^ k;
         enc = enc + String.fromCharCode(b);
     }
@@ -68,9 +65,8 @@ client.on('ready', function() {
 
 client.on('message', function(user, userID, channelID, message, event) {
     if (channelID === currentChannel.id) {
-        document.getElementById("messages").insertAdjacentHTML("beforeend", `<p><b>${user}#${event.d.author.discriminator}</b> ${message}</p>`);
-
-        var e = document.getElementById("messages");
+		var e = document.getElementById("messages");
+        e.insertAdjacentHTML("beforeend", `<p><b>${user}#${event.d.author.discriminator}</b> ${message}</p>`);
         e.scrollTop = e.scrollHeight;
     }
 });
@@ -108,7 +104,6 @@ function channelChange() {
         if (error) return console.log(error);
         var arr = [];
         for (var m in messages) {
-            // add hasOwnPropertyCheck if needed
             arr.push(m);
         }
         for (var i = 0; i < arr.length; i++) {
