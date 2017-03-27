@@ -1,1 +1,203 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <link rel="stylesheet" media="screen" href="style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+
+            $('#checkbox').change(function() {
+                setInterval(function() {
+                    moveRight();
+                }, 3000);
+            });
+
+            var slideCount = $('#slider ul li').length;
+            var slideWidth = $('#slider ul li').width();
+            var slideHeight = $('#slider ul li').height();
+            var sliderUlWidth = slideCount * slideWidth;
+
+            $('#slider').css({
+                width: slideWidth,
+                height: slideHeight
+            });
+
+            $('#slider ul').css({
+                width: sliderUlWidth,
+                marginLeft: -slideWidth
+            });
+
+            $('#slider ul li:last-child').prependTo('#slider ul');
+
+            function moveLeft() {
+                $('#slider ul').animate({
+                    left: +slideWidth
+                }, 200, function() {
+                    $('#slider ul li:last-child').prependTo('#slider ul');
+                    $('#slider ul').css('left', '');
+                });
+            };
+
+            function moveRight() {
+                $('#slider ul').animate({
+                    left: -slideWidth
+                }, 200, function() {
+                    $('#slider ul li:first-child').appendTo('#slider ul');
+                    $('#slider ul').css('left', '');
+                });
+            };
+
+            $('a.control_prev').click(function() {
+                moveLeft();
+            });
+
+            $('a.control_next').click(function() {
+                moveRight();
+            });
+
+        });
+        jQuery(document).ready(function($) {
+
+            $('#checkbox').change(function() {
+                setInterval(function() {
+                    moveRight();
+                }, 3000);
+            });
+
+            var slideCount = $('#slider2 ul li').length;
+            var slideWidth = $('#slider2 ul li').width();
+            var slideHeight = $('#slider2 ul li').height();
+            var sliderUlWidth = slideCount * slideWidth;
+
+            $('#slider2').css({
+                width: slideWidth,
+                height: slideHeight
+            });
+
+            $('#slider2 ul').css({
+                width: sliderUlWidth,
+                marginLeft: -slideWidth
+            });
+
+            $('#slider2 ul li:last-child').prependTo('#slider2 ul');
+
+            function moveLeft() {
+                $('#slider2 ul').animate({
+                    left: +slideWidth
+                }, 200, function() {
+                    $('#slider2 ul li:last-child').prependTo('#slider2 ul');
+                    $('#slider2 ul').css('left', '');
+                });
+            };
+
+            function moveRight() {
+                $('#slider2 ul').animate({
+                    left: -slideWidth
+                }, 200, function() {
+                    $('#slider2 ul li:first-child').appendTo('#slider2 ul');
+                    $('#slider2 ul').css('left', '');
+                });
+            };
+
+            $('a.control_prev2').click(function() {
+                moveLeft();
+            });
+
+            $('a.control_next2').click(function() {
+                moveRight();
+            });
+
+        });
+
+        $(document).ready(function() {
+            // Tooltip only Text
+            $('.masterTooltip').hover(function() {
+                // Hover over code
+                var title = $(this).attr('title');
+                $(this).data('tipText', title).removeAttr('title');
+                $('<p class="tooltip"></p>')
+                    .text(title)
+                    .appendTo('body')
+                    .fadeIn('slow');
+            }, function() {
+                // Hover out code
+                $(this).attr('title', $(this).data('tipText'));
+                $('.tooltip').remove();
+            }).mousemove(function(e) {
+                var mousex = e.pageX + 20; //Get X coordinates
+                var mousey = e.pageY + 10; //Get Y coordinates
+                $('.tooltip')
+                    .css({
+                        top: mousey,
+                        left: mousex
+                    })
+            });
+        });
+
+        function hS() {
+            if ("Willam Shakespeare ▼" === $('#shakeHead').text()) {
+                $('#shakeHead').text("Willam Shakespeare ▲");
+            } else {
+                $('#shakeHead').text("Willam Shakespeare ▼");
+            }
+            $('#shakespeare').toggle();
+        }
+        function hA() {
+            if ("Jane Austen ▼" === $('#ausHead').text()) {
+                $('#ausHead').text("Jane Austen ▲");
+            } else {
+                $('#ausHead').text("Jane Austen ▼");
+            }
+            $('#austen').toggle();
+        }
+    </script>
+
+    <title>Computer Replication of Famous Authors</title>
+</head>
+
+<body>
+    <h1>Computer Replication of Famous Authors</h1>
+    <h2>Made by Otto Sapora</h2>
+    </br>
+    <p>This program used an <a href="#" title="A Long Short-Term Memory neural network is a recurrent neural network proposed in 1997 that is well-suited to classify and predict patterns." class="masterTooltip">LSTM</a> made by Andrej Karpathy to emulate
+        the writings of several famous authors.</p>
+    <p>Read more about his LSTM <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">here.</a></p>
+    </br>
+    </br>
+    </br>
+    <h3><a href="#" onclick="hS()" id="shakeHead">Willam Shakespeare ▼</a></h3>
+    <div id="shakespeare">
+        <div id="slider">
+            <a class="control_next">></a>
+            <a class="control_prev">
+                <</a>
+                    <ul>
+                        <li><iframe src="shakespeare1.html" width=800 height=400 style="border:none;"></iframe></li>
+                        <li style="background: #aaa;">SLIDE 2</li>
+                        <li>SLIDE 3</li>
+                        <li style="background: #aaa;">SLIDE 4</li>
+                    </ul>
+        </div>
+        </br>
+    </div>
+    <h3><a href="#" onclick="hA()" id="ausHead">Jane Austen ▼</a></h3>
+    <div id="austen">
+        <div id="slider2">
+            <a class="control_next2">></a>
+            <a class="control_prev2">
+                <</a>
+                    <ul>
+                        <li><iframe src="austen1.html" style="border:none;"></iframe></li>
+                        <li style="background: #aaa;">SLIDE 2</li>
+                        <li>SLIDE 3</li>
+                        <li style="background: #aaa;">SLIDE 4</li>
+                    </ul>
+        </div>
+        </br>
+    </div>
+
+</body>
+
+</html>
