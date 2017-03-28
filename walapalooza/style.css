@@ -8,6 +8,12 @@
 /* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
 
 
+.shrink{
+-webkit-transform:scale(0.75);
+-moz-transform:scale(0.75);
+-ms-transform:scale(0.75);
+transform:scale(0.75);
+}
 /* basic elements */
 html {
 	margin: 0;

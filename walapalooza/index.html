@@ -60,6 +60,8 @@
         });
         jQuery(document).ready(function($) {
 
+            $('#shakespeare').toggle();
+            $('#austen').toggle();
             $('#checkbox').change(function() {
                 setInterval(function() {
                     moveRight();
@@ -167,26 +169,27 @@
     </br>
     </br>
 <h2>Information</h2></br>
-<p><b>Training loss</b> is how far the neural network is from the desired results. It decreases over time, but due to random chance, this is always variable.</p> 
-<p>One <b>epoch</b> is one forward pass and one backward pass through all of the training examples</p>
+<p style="font-size:16px"><b>Training loss</b> is how far the neural network is from the desired results. It decreases over time, but due to random chance, this is always variable.</p>
+<p style="font-size:16px">One <b>epoch</b> is one forward pass and one backward pass through all of the training examples.</p>
 </br>
     </br>
-    <h3><a href="#" onclick="hS()" id="shakeHead">Willam Shakespeare ▼</a></h3>
+    <h3><a href="#" onclick="hS()" id="shakeHead">Willam Shakespeare ▲</a></h3>
     <div id="shakespeare">
         <div id="slider">
             <a class="control_next">></a>
             <a class="control_prev">
                 <</a>
                     <ul>
-                        <li><iframe src="shakespeare1.html" width=800 height=400 style="border:none;"></iframe></li>
-                        <li style="background: #aaa;">SLIDE 2</li>
+                        <li><iframe src="shakespeare1.html" scrolling="no" width="800" height="400" style="border:none;"></iframe></li>
+                        <li><iframe src="shakespeare2.html" scrolling="no" width="800" height="400" style="border:none;"></iframe></li>
+
                         <li>SLIDE 3</li>
                         <li style="background: #aaa;">SLIDE 4</li>
                     </ul>
         </div>
         </br>
     </div>
-    <h3><a href="#" onclick="hA()" id="ausHead">Jane Austen ▼</a></h3>
+    <h3><a href="#" onclick="hA()" id="ausHead">Jane Austen ▲</a></h3>
     <div id="austen">
         <div id="slider2">
             <a class="control_next2">></a>
