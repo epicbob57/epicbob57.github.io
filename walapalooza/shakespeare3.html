@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" media="screen" href="style.css">
+    <script>
+    function ScrollDiv(){
+
+   if(document.getElementById('scroll').scrollTop<(document.getElementById('scroll').scrollHeight-document.getElementById('scroll').offsetHeight)){-1
+         document.getElementById('scroll').scrollTop=document.getElementById('scroll').scrollTop+1.5
+         }
+   else {document.getElementById('scroll').scrollTop=0;}
+}
+
+setInterval(ScrollDiv,50)
+</script>
+</head>
+
+<body style="padding: 0px;text-align: center;">
+
+    <h1 style="padding: 20px;padding-left:100px;line-height: 0.2;padding-left: 10px;">Middle Results</h1>
+    <div id="scroll" style='padding:50px;display:inline-block;overflow:hidden;width:600px;height:500px;border:none;text-align:left;'>Text here
+</div>
+</body>
+
+</html>
