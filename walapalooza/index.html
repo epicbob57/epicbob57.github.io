@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" media="screen" href="style.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="modal.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -62,6 +63,8 @@
 
             $('#shakespeare').toggle();
             $('#austen').toggle();
+
+            $('#dickens').toggle();
             $('#checkbox').change(function() {
                 setInterval(function() {
                     moveRight();
@@ -85,7 +88,7 @@
 
             $('#slider2 ul li:last-child').prependTo('#slider2 ul');
 
-            function moveLeft() {
+            function moveLeft2() {
                 $('#slider2 ul').animate({
                     left: +slideWidth
                 }, 200, function() {
@@ -94,7 +97,7 @@
                 });
             };
 
-            function moveRight() {
+            function moveRight2() {
                 $('#slider2 ul').animate({
                     left: -slideWidth
                 }, 200, function() {
@@ -104,13 +107,54 @@
             };
 
             $('a.control_prev2').click(function() {
-                moveLeft();
+                moveLeft2();
             });
 
             $('a.control_next2').click(function() {
-                moveRight();
+                moveRight2();
+            });
+            var slideCount = $('#slider3 ul li').length;
+            var slideWidth = $('#slider3 ul li').width();
+            var slideHeight = $('#slider3 ul li').height();
+            var sliderUlWidth = slideCount * slideWidth;
+
+            $('#slider3').css({
+                width: slideWidth,
+                height: slideHeight
             });
 
+            $('#slider3 ul').css({
+                width: sliderUlWidth,
+                marginLeft: -slideWidth
+            });
+
+            $('#slider3 ul li:last-child').prependTo('#slider3 ul');
+
+            function moveLeft3() {
+                $('#slider3 ul').animate({
+                    left: +slideWidth
+                }, 200, function() {
+                    $('#slider3 ul li:last-child').prependTo('#slider3 ul');
+                    $('#slider3 ul').css('left', '');
+                });
+            };
+
+            function moveRight3() {
+                $('#slider3 ul').animate({
+                    left: -slideWidth
+                }, 200, function() {
+                    $('#slider3 ul li:first-child').appendTo('#slider3 ul');
+                    $('#slider3 ul').css('left', '');
+                });
+            };
+
+            $('a.control_prev3').click(function() {
+                moveLeft3();
+            });
+
+            $('a.control_next3').click(function() {
+                moveRight3();
+            });
         });
 
         $(document).ready(function() {
@@ -154,6 +198,14 @@
             }
             $('#austen').toggle();
         }
+        function hD() {
+            if ("Charles Dickens ▼" === $('#dickHead').text()) {
+                $('#dickHead').text("Charles Dickens ▲");
+            } else {
+                $('#dickHead').text("Charles Dickens ▼");
+            }
+            $('#dickens').toggle();
+        }
     </script>
 
     <title>Computer Replication of Famous Authors</title>
@@ -181,6 +233,7 @@
                 <</a>
                     <ul>
                         <li><iframe src="shakespeare1.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="shakespeareO.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
                         <li><iframe src="shakespeare2.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
                         <li><iframe src="shakespeare3.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
                         <li><iframe src="shakespeare4.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
@@ -195,15 +248,31 @@
             <a class="control_prev2">
                 <</a>
                     <ul>
-                        <li><iframe src="austen1.html" style="border:none;"></iframe></li>
-                        <li style="background: #aaa;">SLIDE 2</li>
-                        <li>SLIDE 3</li>
-                        <li style="background: #aaa;">SLIDE 4</li>
+                        <li><iframe src="austen1.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="austenO.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="austen2.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="austen3.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="austen4.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
                     </ul>
         </div>
         </br>
     </div>
-
+    <h3><a href="#" onclick="hD()" id="dickHead">Charles Dickens ▲</a></h3>
+    <div id="dickens">
+        <div id="slider3">
+            <a class="control_next3">></a>
+            <a class="control_prev3">
+                <</a>
+                    <ul>
+                        <li><iframe src="dickens1.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="dickensO.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="dickens2.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="dickens3.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                        <li><iframe src="dickens4.html" scrolling="no" width="800" height="600" style="border:none;"></iframe></li>
+                    </ul>
+        </div>
+        </br>
+    </div>
 </body>
 
 </html>
