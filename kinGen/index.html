@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kindle Genesis</title>
+<script type="text/javascript">
+function convert(url) {
+var data = JSON.stringify({
+    "input": [
+        {
+            "type": "remote",
+            "source": url
+        }
+    ],
+    "conversion": [
+        {
+            "category": "ebook",
+            "target": "mobi"
+        }
+    ]
+});
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+        console.log(this.responseText);
+    }
+});
+
+xhr.open("POST", "http://api2.online-convert.com/jobs");
+xhr.setRequestHeader("x-oc-api-key", "52c5f7f870448df3993d1f5dc51a580a");
+xhr.setRequestHeader("content-type", "application/json");
+xhr.setRequestHeader("cache-control", "no-cache");
+
+xhr.send(data);
+console.log(xhr);
+</script>
+</head>
+
+<body>
+<h1>Kindle Genesis</h1>
+</body>
+</html>
