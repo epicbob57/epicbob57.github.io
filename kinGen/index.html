@@ -21,7 +21,7 @@ function parseSearch(html){
     var title_a = [];
     while (match != null) {
         title_a.push(match[1]);
-        md5_a.push(match[0]);
+        md5_a.push(match[2]);
         match = resRgx.exec(html);
     }
     console.log(md5_a);
