@@ -3,6 +3,16 @@
 <head>
 <title>Kindle Genesis</title>
 <script type="text/javascript">
+function dlSearch(text) {
+    
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+        console.log(this.responseText);
+        }
+    });
+    xhr.open("GET", "http://cors-proxy.htmldriven.com/?url=http://gen.lib.rus.ec/foreignfiction/index.php?s="+encodeURIComponent(text));
+}
 function convert(url) {
 var data = JSON.stringify({
     "input": [
@@ -41,5 +51,7 @@ console.log(xhr);
 
 <body>
 <h1>Kindle Genesis</h1>
+<input>test</input>
+    
 </body>
 </html>
