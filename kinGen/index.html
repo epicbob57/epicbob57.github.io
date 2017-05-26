@@ -19,25 +19,27 @@ function dlSearch(text) {
 }
 function parseSearch(html){
     status("Parsing results...");
-    var resRgx = /<td>Title:<\/td><td>([\s\S]+?)<\/td>[\s\S]+?<td>Series:<\/td><td>([\s\S]+?)<\/td>[\s\S]+?<a href="\/foreignfiction\/ads\.php\?md5=(\w+)"[\s\S]+?\(([0-9]+[km]b)/g;
+    var resRgx = /<td>Title:<\/td><td>([\s\S]+?)<\/td>[\s\S]+?<td>Author1:<\/td><td>([\s\S]+?)<\/td>[\s\S]+?<td>Series:<\/td><td>([\s\S]+?)<\/td>[\s\S]+?<a href="\/foreignfiction\/ads\.php\?md5=(\w+)"[\s\S]+?\(([0-9]+[km]b)/g;
     match = resRgx.exec(html);
     var md5_a = [];
     var title_a = [];
+    var author_a = [];
     var series_a = [];
     var size_a = [];
     while (match != null) {
         title_a.push(match[1]);
-        series_a.push(match[2]);
-        md5_a.push(match[3]);
-        size_a.push(match[4]);
+        author_a.push(match[3]);
+        series_a.push(match[3]);
+        md5_a.push(match[4]);
+        size_a.push(match[5]);
         match = resRgx.exec(html);
     }
-    outputSearch(title_a,series_a,md5_a,size_a);
+    outputSearch(title_a,author_a,series_a,md5_a,size_a);
 }
-function outputSearch(title,series,md5,size){
+function outputSearch(title,author,series,md5,size){
     for(i in title){
         var e = document.getElementById("results");
-        e.insertAdjacentHTML("beforeend", `<p><b>${title[i]} - </b>${series[i]} <a href="#" onclick="convert("http://libgen.io/foreignfiction/get.php?md5=${md5[i]}>Download (${size[i]})</a></p>`);
+        e.insertAdjacentHTML("beforeend", `<p><b>${title[i]} - ${author[i]}</b>${series[i]} <a href="#" onclick="convert("http://libgen.io/foreignfiction/get.php?md5=${md5[i]}>(${size[i]})</a></p>`);
     }
 }
 function convert(url) {
