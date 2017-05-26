@@ -15,7 +15,16 @@ function dlSearch(text) {
     xhr.send(null);
 }
 function parseSearch(html){
-console.log(html);}
+    var resRgx = /<td width=150>([\s\S]+?)<\/td>[\s\S]+?<a href="\/foreignfiction\/ads\.php\?md5=(\w+)"/;
+    match = resRgx.exec(html);
+    var md5_a = [];
+    var title_a = [];
+    while (match != null) {
+        title_a.push(match[1]);
+        md5_a.push(match[0]);
+        match = resRgx.exec(html);
+    }
+}
 function convert(url) {
 var data = JSON.stringify({
     "input": [
