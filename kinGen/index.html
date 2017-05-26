@@ -8,8 +8,7 @@ function dlSearch(text) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log(this.responseText.body);
-            parseSearch(this.responseText.body)
+            parseSearch(JSON.parse(this.responseText).body);
         }   
     }
     xhr.open("GET", "http://cors-proxy.htmldriven.com/?url=http://gen.lib.rus.ec/foreignfiction/index.php?s="+encodeURIComponent(text),true);
