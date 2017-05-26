@@ -8,7 +8,7 @@ function dlSearch(text) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log(this.responseText);
+            console.log(this.responseText.body);
             parseSearch(this.responseText.body)
         }   
     }
