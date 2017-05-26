@@ -28,7 +28,7 @@ function parseSearch(html){
     var size_a = [];
     while (match != null) {
         title_a.push(match[1]);
-        author_a.push(match[3]);
+        author_a.push(match[2]);
         series_a.push(match[3]);
         md5_a.push(match[4]);
         size_a.push(match[5]);
@@ -80,7 +80,7 @@ console.log(xhr);
 
 <body>
 <h1>Kindle Genesis</h1>
-<input id="sText" type="text" placeholder="Search LibGen..."></input>
+<input id="sText" type="text" placeholder="Search Library Genesis..."></input>
 <button onclick="dlSearch(document.getElementById('sText').value);">Search</button>
     </br>
 <p id="status"></p>
