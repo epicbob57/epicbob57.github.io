@@ -3,8 +3,11 @@
 <head>
 <title>Kindle Genesis</title>
 <script type="text/javascript">
+    function status(text) {
+        document.getElementById("status").value = text;
+    }
 function dlSearch(text) {
-    
+    status("Downloading results...")
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -15,7 +18,8 @@ function dlSearch(text) {
     xhr.send(null);
 }
 function parseSearch(html){
-    var resRgx = /<td>Title:<\/td><td>([\s\S]+)<\/td>[\s\S]+?<a href="\/foreignfiction\/ads\.php\?md5=(\w+)"/g;
+    status("Parsing results...");
+    var resRgx = /<td>Title:<\/td><td>([\s\S]+?)<\/td>[\s\S]+?<a href="\/foreignfiction\/ads\.php\?md5=(\w+)"/g;
     match = resRgx.exec(html);
     var md5_a = [];
     var title_a = [];
@@ -66,6 +70,8 @@ console.log(xhr);
 <body>
 <h1>Kindle Genesis</h1>
 <input id="sText" type="text" placeholder="Search LibGen..."></input>
-    <button onclick="dlSearch(document.getElementById('sText').value);">Search</button>
+<button onclick="dlSearch(document.getElementById('sText').value);">Search</button>
+    </br>
+<p id="status"></p>
 </body>
 </html>
