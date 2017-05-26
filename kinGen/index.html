@@ -8,12 +8,14 @@ function dlSearch(text) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            alert(xhr.responseText);
-        }
+            parseSearch(this.responseText)
+        }   
     }
     xhr.open("GET", "http://cors-proxy.htmldriven.com/?url=http://gen.lib.rus.ec/foreignfiction/index.php?s="+encodeURIComponent(text),true);
     xhr.send(null);
 }
+function parseSearch(html){
+console.log(html);}
 function convert(url) {
 var data = JSON.stringify({
     "input": [
@@ -52,7 +54,7 @@ console.log(xhr);
 
 <body>
 <h1>Kindle Genesis</h1>
-<input>2</input>
+<input type="text" placeholder="Search LibGen..."></input>
     
 </body>
 </html>
