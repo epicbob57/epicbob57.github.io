@@ -8,14 +8,14 @@ function dlSearch(text) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            parseSearch(this.responseText)
+            parseSearch(this.responseText.body)
         }   
     }
     xhr.open("GET", "http://cors-proxy.htmldriven.com/?url=http://gen.lib.rus.ec/foreignfiction/index.php?s="+encodeURIComponent(text),true);
     xhr.send(null);
 }
 function parseSearch(html){
-    var resRgx = /<td width=150>([\s\S]+?)<\/td>[\s\S]+?<a href="\/foreignfiction\/ads\.php\?md5=(\w+)"/;
+    var resRgx = /<td width=150>([\s\S]+?)<\/td>[\s\S]+?<a href="\/foreignfiction\/ads\.php\?md5=(\w+)"/g;
     match = resRgx.exec(html);
     var md5_a = [];
     var title_a = [];
@@ -24,6 +24,8 @@ function parseSearch(html){
         md5_a.push(match[0]);
         match = resRgx.exec(html);
     }
+    console.log(md5_a);
+    console.log(title_a);
 }
 function convert(url) {
 var data = JSON.stringify({
