@@ -6,12 +6,13 @@
 function dlSearch(text) {
     
     var xhr = new XMLHttpRequest();
-    xhr.addEventListener("readystatechange", function () {
-        if (this.readyState === 4) {
-        console.log(this.responseText);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            alert(xhr.responseText);
         }
-    });
-    xhr.open("GET", "http://cors-proxy.htmldriven.com/?url=http://gen.lib.rus.ec/foreignfiction/index.php?s="+encodeURIComponent(text));
+    }
+    xhr.open("GET", "http://cors-proxy.htmldriven.com/?url=http://gen.lib.rus.ec/foreignfiction/index.php?s="+encodeURIComponent(text),true);
+    xhr.send(null);
 }
 function convert(url) {
 var data = JSON.stringify({
@@ -51,7 +52,7 @@ console.log(xhr);
 
 <body>
 <h1>Kindle Genesis</h1>
-<input>test</input>
+<input>2</input>
     
 </body>
 </html>
