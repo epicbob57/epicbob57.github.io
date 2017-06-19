@@ -14,7 +14,7 @@ function Circle(x, y) {
   }
 
   this.show = function() {
-    stroke((this.y/2)-100,100,100);
+    stroke((this.y/(img.height/384))-100,100,100);
     strokeWeight(2);
     noFill();
     ellipse(this.x, this.y, this.r * 2, this.r * 2);
