@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Chat</title>
+<script>
+  console.log = function(text) {
+    chat.appendChild('<p>'+text+'</p>')
+  }
+</script>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script src="https://cdn.tmijs.org/js/latest/1.x/tmi.min.js"></script>
