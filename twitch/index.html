@@ -5,7 +5,9 @@
 <title>Chat</title>
 <script>
   console.log = function(text) {
-    chat.appendChild('<p>'+text+'</p>')
+	  var l = document.createElement('p');
+    p.innerHTML = text;
+    chat.appendChild(p);
   }
 </script>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
