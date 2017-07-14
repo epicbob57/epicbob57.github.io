@@ -1,0 +1,1 @@
+file_get_contents($_GET['https://kiwiirc.com/client/irc.chat.twitch.tv/?nick=epicbob57&theme=basic#failstream']);
